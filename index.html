@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>⚡ C Server Unleashed ⚡</title>
+<style>
+    body {
+        margin: 0;
+        background: black;
+        color: #00ffcc;
+        font-family: 'Courier New', monospace;
+        overflow: hidden;
+    }
+
+    .container {
+        text-align: center;
+        margin-top: 10%;
+    }
+
+    h1 {
+        font-size: 3rem;
+        text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+        animation: glitch 1s infinite;
+    }
+
+    @keyframes glitch {
+        0% { transform: translate(0); }
+        20% { transform: translate(-2px, 2px); }
+        40% { transform: translate(-2px, -2px); }
+        60% { transform: translate(2px, 2px); }
+        80% { transform: translate(2px, -2px); }
+        100% { transform: translate(0); }
+    }
+
+    p {
+        font-size: 1.2rem;
+        margin-top: 20px;
+        color: #00ffaa;
+    }
+
+    .box {
+        margin-top: 40px;
+        padding: 20px;
+        border: 1px solid #00ffcc;
+        display: inline-block;
+        box-shadow: 0 0 15px #00ffcc;
+    }
+
+    .btn {
+        margin-top: 30px;
+        padding: 10px 20px;
+        border: none;
+        background: #00ffcc;
+        color: black;
+        cursor: pointer;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    .btn:hover {
+        background: black;
+        color: #00ffcc;
+        border: 1px solid #00ffcc;
+    }
+
+    canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+</style>
+</head>
+<body>
+
+<canvas id="matrix"></canvas>
+
+<div class="container">
+    <h1>⚡ C HTTP SERVER ⚡</h1>
+
+    <p>Not just running... it's ALIVE.</p>
+
+    <div class="box">
+        <p>🔥 Status: ONLINE</p>
+        <p>⚙️ Engine: Raw C + Sockets</p>
+        <p>🚀 Powered by: Jyotiraditya</p>
+        <p>🌐 Port: 8080</p>
+    </div>
+
+    <button class="btn" onclick="alert('Server says: You built something REAL 🔥')">
+        Ping Server
+    </button>
+</div>
+
+<script>
+// Matrix rain effect
+const canvas = document.getElementById("matrix");
+const ctx = canvas.getContext("2d");
+
+canvas.height = window.innerHeight;
+canvas.width = window.innerWidth;
+
+let letters = "01";
+letters = letters.split("");
+
+let fontSize = 14;
+let columns = canvas.width / fontSize;
+
+let drops = [];
+for (let i = 0; i < columns; i++) {
+    drops[i] = 1;
+}
+
+function draw() {
+    ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = "#00ffcc";
+    ctx.font = fontSize + "px monospace";
+
+    for (let i = 0; i < drops.length; i++) {
+        let text = letters[Math.floor(Math.random() * letters.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975)
+            drops[i] = 0;
+
+        drops[i]++;
+    }
+}
+
+setInterval(draw, 33);
+</script>
+
+</body>
+</html>
