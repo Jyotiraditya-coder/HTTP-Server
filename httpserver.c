@@ -16,11 +16,7 @@
 
 const char * status_phrases_arr[] = {"File Not Found" ,"File Found" ,"Bad Request"};
 pthread_mutex_t file_mutex = PTHREAD_MUTEX_INITIALIZER;
-<<<<<<< HEAD
 //Different MIME types
-=======
-// Different MIME-types for each type of requests -->
->>>>>>> a473be9 (.)
 char * get_mime_type(char * arg){
 
 	if (arg == NULL) return "text/plain";
@@ -32,11 +28,7 @@ char * get_mime_type(char * arg){
 	
 	return "application/octet-stream";
 }
-<<<<<<< HEAD
-// Logging of users trying to access the server-->
-=======
 // Loggin of Users trying to access the server-->
->>>>>>> a473be9 (.)
 void sendLogData(char *method , char * path, int status_code,pid_t tid,const char * status_phrase){	
 
 	FILE * log_file;
