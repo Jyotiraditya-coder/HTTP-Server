@@ -142,7 +142,6 @@ To change the port, edit the `#define PORT 8080` line at the top of `httpserver.
 
 This is a learning project. These are intentional simplifications:
 
-- **Single-threaded** — handles one request at a time; concurrent connections queue up
 - **GET only** — POST, PUT, DELETE are rejected with `405`
 - **Content-Type is hardcoded** — all files are served as `text/html` regardless of extension
 - **No `SO_REUSEADDR`** — if the server crashes, you may need to wait ~60s before restarting on the same port
